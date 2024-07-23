@@ -11,23 +11,32 @@
   <body>
     <div class="container">
       <header>
-        <h1>Welcome to the New England Poetry Generator!</h1>
+        <h1>Welcome to the New England Style Poetry Generator!</h1>
       </header>
 
       <main>
-        <form id="poem-generator-form">
-          <input
-            type="text"
-            placeholder="Enter the topic of the poem."
-            autofocus
-            required
-            autocomplete="off"
-            class="prompt"
-            id="user-prompt-input"
-          />
-          <input type="submit" class="submit-button" />
-        </form>
-        <div class="poem" id="poem"></div>
+        <div class="form-container">
+          <form id="poem-generator-form">
+            <input
+              type="text"
+              placeholder="Enter the topic of your poem."
+              autofocus
+              required
+              autocomplete="off"
+              class="prompt"
+              id="user-prompt-input"
+            />
+            <input type="submit" class="submit-button" />
+          </form>
+          <div class="suggestions">
+            i.e: Acadia, blueberries, Cape Cod, moose, snow, Vermont... <br />
+            <br />
+            Enter a topic related to New England, or enter any topic, and we'll
+            generate a poem about it in the style of classic New England poets
+            like Poe and Thoreau!
+          </div>
+        </div>
+        <div class="poem hidden" id="poem"></div>
       </main>
 
       <footer>
