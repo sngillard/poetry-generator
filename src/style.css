@@ -1,17 +1,15 @@
 body {
-  background: rgb(139, 153, 154);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background: rgb(227, 233, 233);
+  font-family: baskerville, serif;
 }
 
 a {
-  color: rgb(100, 125, 138);
+  color: rgb(139, 153, 154);
 }
 
 .container {
-  margin: 120px auto;
+  margin: 85px auto;
   max-width: 600px;
-  background-color: whitesmoke;
 }
 
 header {
@@ -21,17 +19,19 @@ header {
 h1 {
   text-align: center;
   font-weight: 800;
-  font-size: 36px;
+  font-size: 32px;
   line-height: 1.5;
-  color: rgb(77, 114, 115);
+  color: rgb(54, 58, 58);
+  font-family: bradly hand, cursive;
 }
 
 .form-container {
   padding: 30px;
-  background-color: rgb(199, 215, 216, 0.4);
+  background-color: whitesmoke;
   box-shadow: 0px 20px 60px rgba(65, 50, 100 0.08);
   border-radius: 10px;
-  margin-bottom: 15px 20px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
 }
 
 form {
@@ -40,40 +40,47 @@ form {
 
 .suggestions {
   line-height: 1.5;
-  margin-top: 10px;
-  opacity: 0.6;
-  font-size: 12px;
+  margin-top: 5px;
+  opacity: 0.8;
+  font-size: 14px;
+  color: black;
 }
 
 .prompt {
   padding: 16px;
-  border: 1px solid grey;
+  border: 1px solid rgba(39, 33, 66, 0.5);
   width: 80%;
   font-size: 16px;
+  font-weight: 550;
+  font-family: baskerville, serif;
   border-radius: 50px;
   line-height: 20px;
-  color: rgb(106, 105, 122);
+  color: rgb(54, 58, 58);
 }
 
 .submit-button {
   margin-left: 10px;
-  background: rgb(139, 153, 154, 0.5);
-  color: black;
+  background: rgb(139, 153, 154);
+  color: whitesmoke;
   border: none;
   width: 150px;
   font-size: 16px;
+  font-family: baskerville, serif;
+  font-weight: 550;
   border-radius: 50px;
-  padding: 14px 24px;
+  padding: 10px 20px;
 }
 
 .poem {
-  font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.682);
+  font-size: 18px;
+  font-family: bradly hand, cursive;
+  background-color: whitesmoke;
   padding: 20px;
   line-height: 2;
-  font-weight: 24px;
-  border-left: 3px solid rgb(106, 105, 122);
-  box-shadow: 0px 20px 60px rgba(65, 50, 100 0.08);
+  border-left: 3px solid rgb(139, 153, 154);
+  box-shadow: 0px 4px 30px 0px rgba(39, 33, 66, 0.03);
+  margin-bottom: 30px;
+  border-radius: 10px;
 }
 
 .hidden {
@@ -81,12 +88,14 @@ form {
 }
 
 .poem strong {
-  color: rgb(77, 114, 115); /* rgb(113, 174, 240); sky blue */
+  color: #667f92;
+  font-size: 22px;
+  font-weight: 800;
 }
 
 footer {
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   margin: 30px 0px 15px 0px;
   padding-bottom: 15px;
 }
@@ -154,7 +163,7 @@ footer {
 /* Caption text */
 .text {
   color: #000; /* #f2f2f2; */
-  font-size: 10px;
+  font-size: 12px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
