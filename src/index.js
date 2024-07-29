@@ -27,35 +27,81 @@ function generatePoem(event) {
 let poemFormElement = document.querySelector("#poem-generator-form");
 poemFormElement.addEventListener("submit", generatePoem);
 
+//Image gallery
 let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
+let slideInterval;
 
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
+
+  //Handle wrap-around
   if (n > slides.length) {
     slideIndex = 1;
   }
   if (n < 1) {
     slideIndex = slides.length;
   }
+
+  //Hide all slides and reset all dots
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
+
+  //Display the current slide and set the active dot
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 }
+
+//Show the initial slide
+showSlides(slideIndex);
+
+//Next/previous controls
+function plusSlides(n) {
+  clearInterval(slideInterval); //Stop auto-slide when user navigates
+  showSlides((slideIndex += n));
+  resetAutoSlide(); //Restart auto-slide after user interaction
+}
+
+//Thumbnail image controls
+function currentSlide(n) {
+  clearInterval(slideInterval); //Stop auto-slide when user navigates
+  showSlides((slideIndex = n));
+  resetAutoSlide(); //Restart auto-slide after user interaction
+}
+
+//Automatic slide transition
+function startAutoSlide() {
+  slideInterval = setInterval(function () {
+    showSlides(++slideIndex);
+  }, 5000); // Change slide every 5 seconds
+}
+
+//Restart automatic slide transition
+function resetAutoSlide() {
+  clearInterval(slideInterval);
+  startAutoSlide();
+}
+
+//Initialize auto-slide
+startAutoSlide();
+
+//Attach event listeners to buttons and dots
+document.querySelector(".prev").addEventListener("click", function () {
+  plusSlides(-1);
+});
+
+document.querySelector(".next").addEventListener("click", function () {
+  plusSlides(1);
+});
+
+let dots = document.querySelectorAll(".dot");
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", function () {
+    currentSlide(index + 1);
+  });
+});
