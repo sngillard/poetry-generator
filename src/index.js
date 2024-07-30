@@ -78,7 +78,7 @@ function currentSlide(n) {
 function startAutoSlide() {
   slideInterval = setInterval(function () {
     showSlides(++slideIndex);
-  }, 5000); // Change slide every 5 seconds
+  }, 5000); //Change slide every 5 seconds
 }
 
 //Restart automatic slide transition
