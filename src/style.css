@@ -579,6 +579,76 @@ footer {
   }
 }
 
+/* Media query for large screens with min-width of 1281px and max-width of 1919px */
+@media (min-width: 1281px) and (max-width: 1919px) {
+  .container {
+    margin: 85px auto;
+    max-width: 50%;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .suggestions {
+    font-size: 18px;
+  }
+
+  .directions {
+    font-size: 16px;
+  }
+
+  .prompt {
+    font-size: 22px;
+  }
+
+  .submit-button {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .poem {
+    font-size: 24px;
+    padding: 25px;
+  }
+
+  .poem strong {
+    font-size: 40px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+
+  /* For slideshow */
+  .text {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  .numbertext {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  .prev,
+  .next {
+    padding: 16px;
+    font-size: 20px;
+  }
+
+  .dot {
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+  }
+}
+
 /* Media query for very large screens with a min-width of 1920px, like iMac */
 @media (min-width: 1920px) {
   .container {
