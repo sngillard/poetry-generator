@@ -27,10 +27,11 @@ function generatePoem(event) {
 let poemFormElement = document.querySelector("#poem-generator-form");
 poemFormElement.addEventListener("submit", generatePoem);
 
-//Image gallery
 let slideIndex = 1;
 let slideInterval;
+let isNavigating = false; //Prevent multiple intervals
 
+//Show slides based on slideIndex
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
@@ -39,9 +40,10 @@ function showSlides(n) {
   //Handle wrap-around
   if (n > slides.length) {
     slideIndex = 1;
-  }
-  if (n < 1) {
+  } else if (n < 1) {
     slideIndex = slides.length;
+  } else {
+    slideIndex = n;
   }
 
   //Hide all slides and reset all dots
@@ -54,30 +56,47 @@ function showSlides(n) {
 
   //Display the current slide and set the active dot
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  if (dots.length > 0) {
+    dots[slideIndex - 1].className += " active";
+  }
 }
 
 //Show the initial slide
 showSlides(slideIndex);
 
-//Next/previous controls
+//Change slideIndex and show the next or previous slide
 function plusSlides(n) {
-  clearInterval(slideInterval); //Stop auto-slide when user navigates
-  showSlides((slideIndex += n));
+  if (isNavigating) return; //Prevent multiple clicks
+  isNavigating = true;
+
+  slideIndex += n;
+  showSlides(slideIndex);
+
+  setTimeout(() => {
+    isNavigating = false; //Allow navigation after delay
+  }, 500); //Adjust timeout
   resetAutoSlide(); //Restart auto-slide after user interaction
 }
 
-//Thumbnail image controls
+//Set the current slide and restart auto-slide
 function currentSlide(n) {
-  clearInterval(slideInterval); //Stop auto-slide when user navigates
-  showSlides((slideIndex = n));
+  if (isNavigating) return; //Prevent multiple clicks
+  isNavigating = true;
+
+  slideIndex = n;
+  showSlides(slideIndex);
+  setTimeout(() => {
+    isNavigating = false; //Allow navigation after delay
+  }, 500);
+
   resetAutoSlide(); //Restart auto-slide after user interaction
 }
 
-//Automatic slide transition
+//Start automatic slide transition
 function startAutoSlide() {
   slideInterval = setInterval(function () {
-    showSlides(++slideIndex);
+    slideIndex++;
+    showSlides(slideIndex);
   }, 5000); //Change slide every 5 seconds
 }
 
@@ -92,16 +111,16 @@ startAutoSlide();
 
 //Attach event listeners to buttons and dots
 document.querySelector(".prev").addEventListener("click", function () {
-  plusSlides(-1);
+  plusSlides(-1); //Show the previous slide
 });
 
 document.querySelector(".next").addEventListener("click", function () {
-  plusSlides(1);
+  plusSlides(1); //Show the next slide
 });
 
 let dots = document.querySelectorAll(".dot");
 dots.forEach((dot, index) => {
   dot.addEventListener("click", function () {
-    currentSlide(index + 1);
+    currentSlide(index + 1); //Show the clicked slide
   });
 });
