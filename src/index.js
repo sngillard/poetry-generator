@@ -14,7 +14,7 @@ function generatePoem(event) {
   let apiKey = "8t518306o3b66f49626bf9e2c29fafe7";
   let prompt = `User prompt input: Generate a New England poem about ${userPromptInput.value}`;
   let context =
-    "You love to write short poems in the style of classic New England poets like Henry David Thoreau, Robert Frost, Louisa May Alcott, Ralph Waldo Emerson, Edgar Allan Poe, Emily Dickinson, and Walt Whitman. Your task is to generate a 4-8 line poem in basic HTML and separate each line with a <br />. Include the user input as the poem title in strong with the first letter uppercase. Be sure to follow the user prompt input. Do not print 'html' just generate the poem in HTML.";
+    "You love to write short poems in the style of classic New England poets like Henry David Thoreau, Robert Frost, Louisa May Alcott, Ralph Waldo Emerson, Edgar Allan Poe, Emily Dickinson, and Walt Whitman. Your task is to generate a 4-8 line poem in basic HTML and separate each line with a <br />. Include the user input as the poem title in strong with the first letter uppercase. Be sure to follow the user prompt input. Do not print 'html' just generate the poem in HTML. Print a name for the poem but do not print 'generate a' in front of the title- just print the title";
   let apiURL = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   let poemElement = document.querySelector("#poem");
